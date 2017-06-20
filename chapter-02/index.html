@@ -1,0 +1,111 @@
+<html>
+<head>
+  <title>Vue.js Pet Depot</title>
+  <script src="https://unpkg.com/vue"></script>
+  <link rel="stylesheet" type="text/css" href="assets/css/app.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<div id="app">
+  <header>
+    <div class="navbar navbar-default">
+      <div class="navbar-header">
+        <h1 v-text="sitename"></h1>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+          <figure>
+            <img v-bind:src="product.image">
+          </figure>
+        </div>
+        <div class="col-md-6 col-md-offset-2 description">
+          <h1 v-text="product.title"></h1>
+          <p v-html="product.description"></p>
+          <p class="price">
+            {{product.price | formatPrice}}
+          </p>
+        </div>
+    </div>
+
+  </main>
+
+</div>
+    <script type="text/javascript">
+    var APP_LOG_LIFECYCLE_EVENTS = true;
+    var webstore = new Vue({
+      el: '#app',
+      data: {
+        sitename: "Vue.js Pet Depot",
+        product: {
+          id: 1001,
+          title: "Cat Food, 25lb bag",
+          description: "A 25 pound bag of <em>irresistible</em>,"+" organic goodness for your cat.",
+          price: 2000,
+          image: "assets/images/product-fullsize.png",
+        },
+      },
+      filters: {
+        formatPrice(price) {	//#B
+          if (!parseInt(price)) { return ""; }	//#C
+          if (price > 99999) {	//#D
+            var priceString = (price / 100).toFixed(2);	//#E
+            var priceArray = priceString.split("").reverse();	//#F
+            var index = 3;	//#F
+            while (priceArray.length > index + 3) {	//#F
+              priceArray.splice(index+3, 0, ",");	//#F
+              index += 4;	//#F
+            }	//#F
+            return "$" + priceArray.reverse().join("");	//#G
+          } else {
+            return "$" + (price / 100).toFixed(2);	//#H
+          }
+        }
+
+      },
+      beforeCreate: function() {	//#B
+    if (APP_LOG_LIFECYCLE_EVENTS) {	//#B
+      console.log("beforeCreate");	//#B
+    }	//#B
+  },	//#B
+  created: function() {	//#C
+    if (APP_LOG_LIFECYCLE_EVENTS) {	//#C
+      console.log("created");	//#C
+    }	//#C
+  },	//#C
+  beforeMount: function() {	//#D
+    if (APP_LOG_LIFECYCLE_EVENTS) {	//#D
+      console.log(" beforeMount");	//#D
+    }	//#D
+  },	//#D
+  mounted:  function() {	//#E
+    if (APP_LOG_LIFECYCLE_EVENTS) {	//#E
+      console.log(" mounted"); 	//#E
+    } 	//#E
+  },	//#E
+  beforeUpdate:  function() { 	//#F
+    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#F
+      console.log("beforeUpdate"); 	//#F
+    } 	//#F
+  },	//#F
+  updated:  function() { 	//#G
+    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#G
+      console.log("updated"); 	//#G
+    } 	//#G
+  },	//#G
+  beforeDestroy:  function() { 	//#H
+    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#H
+      console.log("beforeDestroy "); 	//#H
+    } 	//#H
+  },	//#H
+  destroyed:  function() { 	//#I
+    if (APP_LOG_LIFECYCLE_EVENTS) { 	//#I
+      console.log("destroyed"); 	//#I
+    } 	//#I
+  }	//#I
+});
+
+    </script>
+  </body>
+</html>

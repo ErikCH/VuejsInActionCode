@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Vue.js Calculator</title>
+  <style>
+    p, input { font-family: monospace; }
+    p { white-space: pre; }
+  </style>
+</head>
+<body>
+  <!-- A DOM anchor for our app -->
+  <div id="app">
+    <!-- Form inputs to collect x and y -->
+    <p>x <input v-model="x"></p>
+    <p>y <input v-model="y"></p>
+    <p>---------------------</p>
+    <!-- Display the result of x + y -->
+    <p>= <span v-text="result"></span></p>
+  </div>
+
+  <!-- The vue.js library -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- Our calculator's JavaScript -->
+  <script type="text/javascript">
+    /* Initializes the calculator */
+    var calc = new Vue({
+      /* Connects our app to the DOM */
+      el: '#app',
+      /* Variables for the value of x and y */
+      data: { x: 0, y: 0 },
+      /* Does the calculating */
+      computed: {
+        result: function() {
+          return parseInt(this.x)
+               + parseInt(this.y);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

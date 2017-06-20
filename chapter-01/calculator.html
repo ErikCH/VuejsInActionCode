@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A JavaScript Calculator</title>
+  <style>
+    p, input { font-family: monospace; }
+    p { white-space: pre; }
+  </style>
+</head>
+<!-- Bind to the init function -->
+<body onload="init();">
+  <!-- Form inputs to collect x and y and bind
+       to the runCalc function -->
+  <p>x <input id="x" value="0" onkeyup="runCalc();"></p>
+  <p>y <input id="y" value="0" onkeyup="runCalc();"></p>
+  <p>---------------------</p>
+  <!-- Display the result of x + y -->
+  <p>= <span id="result"></span></p>
+
+  <!-- Our calculator's JavaScript -->
+  <script type="text/javascript">
+    /* Variables for DOM elements */
+    var xInput = yInput = output = null;
+    /* Initializes the calculator */
+    function init() {
+      /* Store references to DOM elements */
+      xInput = document.querySelector("#x");
+      yInput = document.querySelector("#y");
+      output = document.querySelector("#result");
+      /* Execute an initial calculation */
+      runCalc();
+    }
+    /* Does the calculating */
+    function runCalc() {
+      output.innerText = parseInt(xInput.value)
+                       + parseInt(yInput.value);
+    }
+  </script>
+</body>
+</html>
