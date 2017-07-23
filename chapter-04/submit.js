@@ -1,0 +1,6 @@
+methods: {
+  submitForm() {
+    alert('Submitted');
+…
+  }
+},

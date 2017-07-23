@@ -1,0 +1,23 @@
+<div class="form-group">
+  <div class="col-md-6 boxes">
+    <input type="checkbox" 
+ id="gift" 
+ value="true" 
+ v-model="order.gift">       				//#A
+    <label for="gift">Ship As Gift?</label>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 boxes">
+    <input type="radio" 
+      id="home" 
+      value="Home" 
+      v-model="order.method">                                    //#B
+    <label for="home">Home</label>
+    <input type="radio" 
+      id="business" 
+      value="Business" 
+      v-model="order.method"> 				//#B
+    <label for="business">Business</label>
+  </div>
+</div>

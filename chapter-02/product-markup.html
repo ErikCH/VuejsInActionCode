@@ -1,0 +1,14 @@
+<main>
+  <div class="row product">
+    <div class="col">
+      <figure>
+        <img v-bind:src="product.image">	//#A
+      </figure>
+    </div>
+    <div class="col col-expand">	
+      <h1 v-text="product.title"></h1>	//#B
+      <p v-text="product.description"></p>	//#B
+      <p v-text="product.price" class="price"></p>	//#B
+    </div>
+  </div>
+</main>

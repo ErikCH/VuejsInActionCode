@@ -1,0 +1,10 @@
+<div class="form-group">
+  <div class="col-md-6 boxes">
+    <input type="checkbox"
+      id="gift" value="true"
+      v-bind:true-value="order.sendGift"  			//#A
+      v-bind:false-value="order.dontSendGift" 		//#B
+      v-model="order.gift"> 					//#C
+    <label for="gift">Ship As Gift?</label>
+  </div>
+</div>

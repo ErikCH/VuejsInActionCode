@@ -1,0 +1,9 @@
+<button class="btn btn-primary btn-lg"
+  v-on:click="addToCart"
+  v-if="canAddToCart">Add to cart</button>
+  <button disabled="true" class="btn btn-primary btn-lg"
+    v-else >Add to cart</button>
+  <span class="inventory-message"				  //#A 
+v-if="product.availableInventory - cartItemCount < 5"> //#B
+Only {{product.availableInventory - cartItemCount}} left!
+  </span>

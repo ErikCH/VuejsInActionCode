@@ -1,0 +1,16 @@
+<main>
+  <div class="row product">
+    <div class="col">
+      <figure>
+        <img v-bind:src="product.image">
+      </figure>
+    </div>
+    <div class="col col-expand">	
+      <h1>{{ product.title }}</h1>	
+      <p v-html="product.description”></p>	
+      <p class="price">	//#A
+        {{ product.price | formatPrice }}	//#A
+      </p>	//#A
+    </div>
+  </div>
+</main>

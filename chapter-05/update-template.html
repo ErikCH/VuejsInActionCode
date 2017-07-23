@@ -1,0 +1,8 @@
+<span class="inventory-message"
+  v-else>Buy Now!
+</span>
+<div class="rating">
+  <span  v-bind:class="{'rating-active': checkRating(n, product)}"  //#A
+    v-for="n in 5" >☆
+  </span>
+</div>

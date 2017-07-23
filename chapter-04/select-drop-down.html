@@ -1,0 +1,13 @@
+<div class="form-group">
+  <div class="col-md-2">
+    <strong>State:</strong>
+    <select v-model="order.state" 
+ 	 class="form-control">
+      <option disabled value="">State</option>		
+      <option v-for="(state, key) in states" 		//#A
+   v-bind:value="state">				//#B
+        {{key}}						//#C
+      </option>
+    </select>
+  </div>
+</div>

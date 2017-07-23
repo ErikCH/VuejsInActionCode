@@ -1,0 +1,14 @@
+<div class="form-group">
+  <div class="col-md-6 boxes">
+    <input type="radio"
+      id="home"
+      v-bind:value="order.home"			//#A
+      v-model="order.method">
+    <label for="home">Home</label>
+    <input type="radio"
+      id="business"
+      v-bind:value="order.business"		//#B
+      v-model="order.method">
+    <label for="business">Business</label>
+  </div>
+</div>

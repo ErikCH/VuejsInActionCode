@@ -1,0 +1,16 @@
+<div class="col-md-6">
+  <strong>First Name:</strong>
+  <input v-model="order.firstName" 		//#A
+    class="form-control"/>  
+</div>
+<div class="col-md-6">
+  <strong>Last Name:</strong>
+  <input v-model="order.lastName" 
+   class="form-control"/>  //#A
+</div>
+<div class="col-md-12 verify">
+  <pre>
+    First Name: {{order.firstName}} 		//#B
+    Last Name:  {{order.lastName}}  		//#B
+  </pre>
+</div>

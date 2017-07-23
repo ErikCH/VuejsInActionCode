@@ -1,0 +1,11 @@
+<span class="inventory-message"
+  v-if="product.availableInventory - cartCount(product.id) === 0"> //#A
+All Out!  
+</span>
+<span class="inventory-message"
+  v-else-if="product.availableInventory - cartCount(product.id) < 5"> //#B
+  Only {{product.availableInventory - cartCount(product.id)}} left!
+</span>
+<span class="inventory-message"
+  v-else>Buy Now!
+</span>

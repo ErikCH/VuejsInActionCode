@@ -1,0 +1,35 @@
+
+<div class="form-group">
+  <div class="col-md-12"><strong>Address:</strong></div>
+  <div class="col-md-12">
+    <input v-model="order.address"                      //#A
+      class="form-control" /> 
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-12"><strong>City:</strong></div>
+  <div class="col-md-12">
+    <input v-model="order.city"                        //#A 
+      class="form-control" /> 
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-2">
+  <strong>State:</strong>
+    <select v-model="order.state"                 //#B
+      class="form-control"> 
+      <option disabled value="">State</option>
+      <option>AL</option>
+      <option>AR</option>
+      <option>CA</option>
+      <option>NV</option>
+    </select>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-6 col-md-offset-4">
+  <strong>Zip / Postal Code:</strong>
+    <input v-model="order.zip"  			//#A 
+      class="form-control"/> 
+  </div>
+</div>

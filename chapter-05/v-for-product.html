@@ -1,0 +1,14 @@
+<div v-if="showProduct">
+  <div v-for="product in products">		//#A
+    <div class="row">
+	 <div class="col-md-5 col-md-offset-0">      //#B
+	   <figure>
+          <img class="product" v-bind:src="product.image">
+        </figure> 
+	 </div>
+      <div class="col-md-6 col-md-offset-0 description"> //#C
+ …
+    </div><!-- end of row-->
+    <hr />						//#D
+  </div><!-- end of v-for-->			//#E
+</div><!-- end of showProduct-->

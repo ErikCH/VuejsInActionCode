@@ -1,0 +1,11 @@
+// Avoid this
+<p v-show="showMe">Some text</p>          //#A
+<p v-show="showMe">Some more text</p>     //#A
+<p v-show="showMe">Even more text</p>     //#A
+
+// Prefer this
+<div v-show="showMe">       //#B
+  <p>Some text</p>          //#B
+  <p>Some more text</p>     //#B
+  <p>Even more text</p>     //#B
+</div>                      //#

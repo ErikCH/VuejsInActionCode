@@ -1,0 +1,18 @@
+<ol>
+  <li v-for="state in states"> 		//#A
+    {{state}}
+  </li>
+</ol>
+
+var webstore = new Vue({
+  el: '#app',
+  data: {
+    states: [
+      'Alabama',
+      'Alaska',
+      'Arizona',
+      'California',
+      'Nevada'
+    ]
+  }
+})
