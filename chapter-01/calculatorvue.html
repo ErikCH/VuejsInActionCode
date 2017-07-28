@@ -8,31 +8,34 @@
   </style>
 </head>
 <body>
-  <!-- A DOM anchor for our app -->
   <div id="app">
-    <!-- Form inputs to collect x and y -->
     <p>x <input v-model="x"></p>
     <p>y <input v-model="y"></p>
     <p>---------------------</p>
-    <!-- Display the result of x + y -->
     <p>= <span v-text="result"></span></p>
   </div>
 
-  <!-- The vue.js library -->
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- Our calculator's JavaScript -->
   <script type="text/javascript">
-    /* Initializes the calculator */
+  function isNotNumericValue(value) {
+    return isNaN(value) || !isFinite(value);
+  }
     var calc = new Vue({
-      /* Connects our app to the DOM */
       el: '#app',
-      /* Variables for the value of x and y */
-      data: { x: 0, y: 0 },
-      /* Does the calculating */
+      data: { x: 0, y: 0, lastResult: 0 },
       computed: {
         result: function() {
-          return parseInt(this.x)
-               + parseInt(this.y);
+          let x = parseFloat(this.x);
+          if(isNotNumericValue(x))
+          return this.lastResult;
+
+          let y = parseFloat(this.y);
+          if(isNotNumericValue(y))
+          return this.lastResult;
+
+          this.lastResult = x + y;
+
+          return this.lastResult;
         }
       }
     });

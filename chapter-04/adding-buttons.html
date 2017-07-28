@@ -1,23 +1,35 @@
 <div class="form-group">
   <div class="col-md-6 boxes">
-    <input type="checkbox" 
- id="gift" 
- value="true" 
+    <input type="checkbox"
+ id="gift"
+ value="true"
  v-model="order.gift">       				//#A
     <label for="gift">Ship As Gift?</label>
   </div>
 </div>
 <div class="form-group">
   <div class="col-md-6 boxes">
-    <input type="radio" 
-      id="home" 
-      value="Home" 
+    <input type="radio"
+      id="home"
+      value="Home"
       v-model="order.method">                                    //#B
     <label for="home">Home</label>
-    <input type="radio" 
-      id="business" 
-      value="Business" 
+    <input type="radio"
+      id="business"
+      value="Business"
       v-model="order.method"> 				//#B
     <label for="business">Business</label>
   </div>
+</div>
+<div class="col-md-12 verify">
+  <pre>								//#C
+    First Name: {{order.firstName}}
+     Last Name: {{order.lastName}}
+       Address: {{order.address}}
+          City: {{order.city}}
+           Zip: {{order.zip}}
+         State: {{order.state}}
+	   Method: {{order.method}
+          Gift: {{order.gift}}
+  </pre>
 </div>

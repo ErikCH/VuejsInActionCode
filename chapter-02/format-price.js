@@ -1,6 +1,6 @@
 var webstore = new Vue({
-  el: '#app', 
-  data: { … },
+  el: '#app',
+  data: { ... },
   filters: {	//#A
     formatPrice: function(price) {	//#B
       if (!parseInt(price)) { return ""; }	//#C

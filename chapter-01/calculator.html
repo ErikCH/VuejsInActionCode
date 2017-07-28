@@ -1,40 +1,122 @@
-<!DOCTYPE html>
+<!DOCTYPE>
 <html>
-<head>
-  <title>A JavaScript Calculator</title>
-  <style>
-    p, input { font-family: monospace; }
-    p { white-space: pre; }
-  </style>
-</head>
-<!-- Bind to the init function -->
-<body onload="init();">
-  <!-- Form inputs to collect x and y and bind
-       to the runCalc function -->
-  <p>x <input id="x" value="0" onkeyup="runCalc();"></p>
-  <p>y <input id="y" value="0" onkeyup="runCalc();"></p>
-  <p>---------------------</p>
-  <!-- Display the result of x + y -->
-  <p>= <span id="result"></span></p>
+  <head>
+    <title>A JavaScript Calculator</title>
+    <style>
+     p, input { font-family: monospace; }
+     p, { white-space: pre; }
+    </style>
+  </head>
+  <body>
+    <div id="myCalc">
+      <p>x <input class="calc-x-input" value="0"></p>
+      <p>y <input class="calc-y-input" value="0"></p>
+      <p>--------------------</p>
+      <p>= <span class="calc-result"></span></p>
+    </div>
+    <script type="text/javascript">
+     (function(){
 
-  <!-- Our calculator's JavaScript -->
-  <script type="text/javascript">
-    /* Variables for DOM elements */
-    var xInput = yInput = output = null;
-    /* Initializes the calculator */
-    function init() {
-      /* Store references to DOM elements */
-      xInput = document.querySelector("#x");
-      yInput = document.querySelector("#y");
-      output = document.querySelector("#result");
-      /* Execute an initial calculation */
-      runCalc();
-    }
-    /* Does the calculating */
-    function runCalc() {
-      output.innerText = parseInt(xInput.value)
-                       + parseInt(yInput.value);
-    }
-  </script>
-</body>
+       function Calc(xInput, yInput, output) {
+         this.xInput = xInput;
+         this.yInput = yInput;
+         this.output = output;
+       }
+
+       Calc.xName = 'xInput';
+       Calc.yName = 'yInput';
+
+       Calc.prototype = {
+         render: function (result) {
+           this.output.innerText = String(result);
+         }
+       };
+
+       function CalcValue(calc, x, y) {
+         this.calc = calc;
+         this.x = x;
+         this.y = y;
+         this.result = x + y;
+       }
+
+       CalcValue.prototype = {
+         copyWith: function(name, value) {
+           var number = parseFloat(value);
+
+           if (isNaN(number) || !isFinite(number))
+             return this;
+
+           if (name === Calc.xName)
+             return new CalcValue(this.calc, number, this.y);
+
+           if (name === Calc.yName)
+             return new CalcValue(this.calc, this.x, number);
+
+           return this;
+         },
+         render: function() {
+           this.calc.render(this.result);
+         }
+       };
+
+       function initCalc(elem) {
+
+         var calc =
+           new Calc(
+             elem.querySelector('input.calc-x-input'),
+             elem.querySelector('input.calc-y-input'),
+             elem.querySelector('span.calc-result')
+           );
+         var lastValues =
+           new CalcValue(
+             calc,
+             parseFloat(calc.xInput.value),
+             parseFloat(calc.yInput.value)
+           );
+
+         var handleCalcEvent =
+           function handleCalcEvent(e) {
+             var newValues = lastValues,
+                 elem = e.target;
+
+             switch(elem) {
+               case calc.xInput:
+                 newValues =
+                   lastValues.copyWith(
+                     Calc.xName,
+                     elem.value
+                   );
+                 break;
+               case calc.yInput:
+                 newValues =
+                   lastValues.copyWith(
+                     Calc.yName,
+                     elem.value
+                   );
+                 break;
+             }
+
+             if(newValues !== lastValues){
+               lastValues = newValues;
+               lastValues.render();
+             }
+           };
+
+         elem.addEventListener('keyup', handleCalcEvent, false);
+
+         return lastValues;
+       }
+
+       window.addEventListener(
+         'load',
+         function() {
+           var cv = initCalc(document.getElementById('myCalc'));
+           cv.render();
+         },
+         false
+       );
+
+     }());
+    </script>
+  </body>
 </html>

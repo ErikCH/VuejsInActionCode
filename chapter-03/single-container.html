@@ -1,19 +1,19 @@
 
-// This won’t work
-<p v-if=”showMe”>The if text</p>            //#A
+// This won't work
+<p v-if="showMe">The if text</p>            //#A
 <p>Some text related to the if text</p>     //#A
 <p v-else>The else text</p>                 //#A
 
 // Nor will this
 <div>                                       //#B
-  <p v-if=”showMe”>The if text</p>          //#B
+  <p v-if="showMe">The if text</p>          //#B
 </div>                                      //#B
 <div>                                       //#B
   <p v-else>The else text</p>               //#B
 </div>                                      //#B
 
 // Instead, consider grouping
-<div v-if=”showMe”>                         //#C
+<div v-if="showMe">                         //#C
   <p>The if text</p>                        //#C
   <p>Some text related to the if text</p>   //#C
 </div>                                      //#C

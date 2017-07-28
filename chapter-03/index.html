@@ -20,6 +20,8 @@
   </header>
   <main>
     <div class="row product">
+      <div v-if="showProduct">
+
         <div class="col-md-2 col-md-offset-1">
           <figure>
             <img v-bind:src="product.image">
@@ -37,9 +39,13 @@
             <button disabled="true" class=" btn btn-primary btn-lg"
               v-else >Add to cart</button>
         </div>
-    </div>
+      </div>
+      <div v-else>
 
-  </main>
+      </div>
+    </div><!--end of row-->
+
+  </main><!--end of main-->
 
 </div>
     <script type="text/javascript">

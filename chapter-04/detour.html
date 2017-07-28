@@ -1,9 +1,12 @@
-<ol>
-  <li v-for="state in states"> 		//#A
-    {{state}}
-  </li>
-</ol>
-
+<div id="app">
+  <ol>
+    <li v-for="state in states"> 		//#A
+      {{state}}
+    </li>
+  </ol>
+</div>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript">
 var webstore = new Vue({
   el: '#app',
   data: {
@@ -16,3 +19,4 @@ var webstore = new Vue({
     ]
   }
 })
+</script>
