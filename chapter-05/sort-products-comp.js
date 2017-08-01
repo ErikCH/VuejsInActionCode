@@ -1,4 +1,4 @@
-sortedProducts: function() {
+sortededProducts() {
   if(this.products.length > 0) {
     let productsArray = this.products.slice(0);		//#A
     function compare(a, b) {				//#B
