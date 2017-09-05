@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <book-component :books="books">
+      <h1 slot="header">{{header}}</h1>
+      <template slot="book" scope="props">
+        <h2>
+          <i>{{props.text.title}}</i>
+          <small>by: {{props.text.author}}</small>
+        </h2>
+      </template>
+    </book-component>
+  </div>
+<script>
+const BookComponent ={
+  template: `
+  <div>
+      <slot name="header"></slot>
+      <slot name="book"
+        v-for="book in books"
+        :text="book">
+      </slot>
+  </div>
+  `,
+  props: ['books']
+}
+new Vue({
+  el: '#app',
+  components: {'book-component': BookComponent},
+  data() {
+    return {
+      header: 'Book List',
+      books: [{author: 'John Smith', title: 'Best Of Times' },
+              {author: 'Jane Doe', title: 'Go West Young Man' },
+              {author: 'Avery Katz', title: 'The Life And Times Of Avery' }
+             ]
+    }
+  }
+
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <my-component>
+        <h3 slot="erik">Text From Erik</h3>
+        <h3>{{message}}</h3>
+    </my-component>
+  </div>
+<script>
+const MyComponent ={
+  template: `
+  <div>
+    <h1>Hello From Component</h1>
+    <slot name="erik"></slot>
+    <h2>More Stuff</h2>
+  </div>
+  `
+
+
+}
+new Vue({
+  el: '#app',
+  components: {'my-component': MyComponent},
+  data() {
+    return {
+        message: 'Hello World'
+    }
+  }
+
+})
+</script>
+</body>
+</html>

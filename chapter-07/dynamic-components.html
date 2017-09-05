@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <button @click="cycle">Cycle</button>
+    <h1>
+      <component :is="currentView"></component>
+    </h1>
+  </div>
+<script>
+const BookComponent ={
+  template: `
+  <div>
+    Book Component
+  </div>
+  `
+}
+
+const FormComponent = {
+  template: `
+  <div>
+    Form Component
+  </div>
+  `
+}
+
+const HeaderComponent = {
+  template: `
+  <div>
+    Header Component
+  </div>
+  `
+}
+
+new Vue({
+  el: '#app',
+  components: {'book-component': BookComponent,
+               'form-component': FormComponent,
+               'header-component': HeaderComponent},
+  data() {
+    return {
+      currentView: BookComponent
+    }
+
+  },
+  methods: {
+        cycle() {
+          if(this.currentView === HeaderComponent)
+            this.currentView = BookComponent
+          else
+            this.currentView = this.currentView === BookComponent ? FormComponent : HeaderComponent;
+        }
+    }
+
+})
+</script>
+</body>
+</html>
