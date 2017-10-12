@@ -4,10 +4,10 @@
 <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-  <div id="app">
+  <div class="app">
     <button @click="cycle">Cycle</button>
     <h1>
-      <component :is="currentView"></component>
+      <component :is="currentView"/>
     </h1>
   </div>
 <script>
@@ -36,7 +36,7 @@ const HeaderComponent = {
 }
 
 new Vue({
-  el: '#app',
+  el: '.app',
   components: {'book-component': BookComponent,
                'form-component': FormComponent,
                'header-component': HeaderComponent},

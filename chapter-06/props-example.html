@@ -23,12 +23,12 @@
       },
       obj: {
         type: Object,
-        default: function () {
+        default: ()=> {
           return {message: 'Hello from object'}
         }
       },
       even: {
-        validator: function(value) {
+        validator: (value) => {
           return (value % 2 === 0)
         }
       }
