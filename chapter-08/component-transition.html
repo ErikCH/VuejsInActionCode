@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+<style>
+.component-fade-enter-active, .component-fade-leave-active {
+  transition: opacity 2.0s ease;
+}
+.component-fade-enter, .component-fade-leave-to {
+  opacity: 0;
+}
+
+</style>
+</head>
+<body>
+  <div class="app">
+    <button @click="cycle">Cycle</button>
+    <h1>
+      <transition name="component-fade" mode="out-in">
+        <component :is="currentView"/>
+      </transition>
+    </h1>
+  </div>
+<script>
+const BookComponent ={
+  template: `
+  <div>
+    Book Component
+  </div>
+  `
+}
+
+const FormComponent = {
+  template: `
+  <div>
+    Form Component
+  </div>
+  `
+}
+
+const HeaderComponent = {
+  template: `
+  <div>
+    Header Component
+  </div>
+  `
+}
+
+new Vue({
+  el: '.app',
+  components: {'book-component': BookComponent,
+               'form-component': FormComponent,
+               'header-component': HeaderComponent},
+  data() {
+    return {
+      currentView: BookComponent
+    }
+
+  },
+  methods: {
+        cycle() {
+          if(this.currentView === HeaderComponent)
+            this.currentView = BookComponent
+          else
+            this.currentView = this.currentView === BookComponent ? FormComponent : HeaderComponent;
+        }
+    }
+
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/vue"></script>
+  <style>
+  @keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="app" >
+    <div @click="show = !show">
+      <h2>{{title}}</h2>
+    </div>
+    <transition name="fade"
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @after-enter="afterEnter"
+        @enter-cancelled="enterCancelled"
+        @before-leave="beforeLeave"
+        @leave="leave"
+        @after-leave="afterLeave"
+        @leave-cancelled="leaveCancelled"
+        :css="false">
+      <div v-if="show">
+        <h1>{{description}}</h1>
+      </div>
+    </transition>
+  </div>
+  <script>
+  function addEventListener(el, done) {
+    el.addEventListener("animationend", function() {
+      el.style="";
+      done();
+    });
+  }
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        title: 'War and Peace',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elim',
+        show: false
+      }
+    },
+    methods: {
+      enter(el, done) {
+        console.log("enter");
+        addEventListener(el,done);
+        el.style.animationName = "bounceIn"
+        el.style.animationDuration = "1.5s";
+      },
+      leave(el, done) {
+        console.log("leave");
+        addEventListener(el,done);
+        el.style.animationName = "bounceIn"
+        el.style.animationDuration = "1.5s";
+        el.style.animationDirection="reverse";
+      },
+      beforeEnter(el) {
+          console.log("before enter");
+      },
+      afterEnter(el) {
+          console.log("after enter");
+      },
+      enterCancelled(el) {
+          console.log("enter cancelled");
+      },
+      beforeLeave(el) {
+          console.log("before leave");
+      },
+      afterLeave(el) {
+          console.log("after leave");
+      },
+      leaveCancelled(el) {
+          console.log("leave cancelled");
+      }
+    }
+
+  });
+  </script>
+</body>
+</html>

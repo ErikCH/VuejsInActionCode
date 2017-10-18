@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app" >
+    <div @click="show = !show">
+      <h2>{{title}}</h2>
+    </div>
+    <transition name="fade">
+      <div v-if="show">
+        <h1>{{description}}</h1>
+      </div>
+    </transition>
+  </div>
+  <script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        title: 'War and Peace',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elim',
+        show: false
+      }
+    }
+
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<div @click="show = !show">
+  <h2>{{title}}</h2>
+</div>
+<transition name="bounce">				//#A
+  <div v-if="show">
+    <h1>{{description}}</h1>
+  </div>
+</transition>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+<style>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2.5s ease-out;
+
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+
+}
+
+.bk {
+  transition: all 0.1s ease-out;
+}
+
+.blur {
+    filter: blur(2px);
+    opacity: 0.4;
+}
+</style>
+</head>
+<body>
+  <div id="app" >
+    <div v-bind:class="[show ? blurClass : '', backClass]">
+      <h1> Transition Demo</h1>
+    </div>
+    <button @click="show = !show">
+      Toggle
+    </button>
+    <transition name="fade">
+      <div v-if="show">
+        <h1>{{demo}}</h1>
+      </div>
+    </transition>
+  </div>
+  <script>
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      demo: 'Transition Me',
+      show: false,
+      backClass: 'bk',
+      blurClass: 'blur'
+    }
+  }
+
+});
+</script>
+</body>
+</html>

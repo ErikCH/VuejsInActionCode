@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://unpkg.com/vue"></script>
+  <style>
+  .bounce-enter-active {
+  animation: bounceIn 2s;
+  }
+  .bounce-leave-active {
+  animation: bounceIn 2s reverse;
+  }
+
+  @keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="app" >
+    <div @click="show = !show">
+      <h2>{{title}}</h2>
+    </div>
+    <transition name="bounce">
+      <div v-if="show">
+        <h1>{{description}}</h1>
+      </div>
+    </transition>
+  </div>
+  <script>
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        title: 'War and Peace',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elim',
+        show: false
+      }
+    }
+
+  });
+  </script>
+</body>
+</html>
