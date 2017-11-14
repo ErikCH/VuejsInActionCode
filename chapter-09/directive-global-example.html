@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<html>
+<head>
+</head>
+<body>
+  <div id='app'>
+      <p v-style-me:text-center.large="'red'">
+          {{welcome}}
+      </p>
+      <div v-style-me.small>Hi everybody</div>
+  </div>
+<script>
+  Vue.directive('style-me', {
+    bind(el, binding) {
+        el.style.color = binding.value || "blue";
+
+        if(binding.modifiers.large)
+          el.style.fontSize= "42px";
+        else if(binding.modifiers.small)
+          el.style.fontSize="17px"
+
+        el.className=binding.arg;
+      }
+  });
+
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      welcome: 'Hello World'
+    }
+  }
+});
+</script>
+</body>
+</html>

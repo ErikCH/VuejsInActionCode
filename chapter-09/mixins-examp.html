@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+    <script src="https://unpkg.com/vue"></script>
+<html>
+<head>
+</head>
+<body>
+  <div id="app">
+    <h1>{{name}}</h1>
+    <my-comp1></my-comp1><br/>
+    <my-comp2></my-comp2>
+  </div>
+<script>
+
+const myButton = {
+  methods: {
+    pressed(val) {
+      alert(val);
+      this.toggle = !this.toggle;
+    }
+  },
+  data() {
+    return {
+      toggle: true
+    }
+  }
+}
+
+const myComp1 = {
+  template: `<div>
+    <button @click="pressed('Button 1 Pressed')">Button 1</button>
+    <div v-if="toggle">
+      <h2>First Component</h2>
+    </div>
+
+  </div>`,
+  mixins: [myButton]
+
+}
+const myComp2 = {
+  template: `<div>
+  <button @click="pressed('Button 2 Pressed')">Button 2</button>
+    <div v-if="toggle">
+      <h2>Second Component</h2>
+    </div>
+  </div>`,
+  mixins: [myButton]
+}
+new Vue({
+  el: '#app',
+  data() {
+    return {
+      name: 'Hello World Vue.js'
+    }
+  },
+  components: {
+      myComp1: myComp1,
+      myComp2: myComp2
+  }
+
+});
+</script>
+</body>
+</html>

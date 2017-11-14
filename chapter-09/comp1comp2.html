@@ -1,0 +1,35 @@
+const comp1 = {							//#A
+    template: `<div>
+    <h1>Enter Email</h1>
+    <form>
+      <div class="form-group">
+        <input v-model="email" 					//#B
+        type="item"
+        class="form-control"
+        placeholder="Email Address"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-lg" @click.prevent="pressed(item)">Press Button 1</button>		//#C
+      </div>
+    </form>
+    </div>`,
+    mixins: [myButton]						//#D
+
+  }
+  const comp2 = {
+    template: `<div>
+    <h1>Enter Number</h1>
+      <form>
+        <div class="form-group">					//#E
+            <input v-model="item"
+            class="form-control"
+            placeholder="Phone Number"/>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-warning btn-lg" @click.prevent="pressed(item)">Press Button 2</button>		//#F
+        </div>
+      </form>
+    </div>`,
+    mixins:[myButton]						//#G
+
+  }

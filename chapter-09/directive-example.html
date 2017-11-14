@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<html>
+<head>
+</head>
+<body>
+  <div id='app'>
+      <p v-style-me>
+          {{welcome}}
+      </p>
+      <div v-style-me>Hi everybody</div>
+  </div>
+<script>
+  new Vue({
+  el: '#app',
+  data() {
+    return {
+      welcome: 'Hello World'
+    }
+  },
+  directives: {
+    styleMe(el, binding, vnode, oldVnode) {
+      bind: {
+        el.style.color = "blue"
+        el.style.fontSize= "42px";
+        el.className="text-center";
+      }
+    }
+  }
+  });
+</script>
+</body>
+</html>
