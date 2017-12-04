@@ -1,0 +1,25 @@
+new Vue({
+    el: '#app',
+    data() {
+      return {
+        header: 'Vuex App'
+      }
+    },
+    computed: {
+      welcome() {
+        return store.state.msg
+      },
+      counter() {
+        return store.state.count;
+      }
+    },
+    methods: {
+      increment() {
+        store.commit('increment')
+      }
+
+    }
+});
+</script>
+</body>
+</html>

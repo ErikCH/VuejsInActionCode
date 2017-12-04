@@ -1,0 +1,15 @@
+...
+mutations: {
+  increment(state,payload) {
+      state.count += payload;
+  }
+},
+getters: {
+    msg(state) {
+      return state.msg.toUpperCase();
+    },
+    count(state) {
+      return state.count;
+    }
+},
+...

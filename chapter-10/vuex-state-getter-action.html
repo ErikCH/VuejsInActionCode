@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vuex"></script>
+</head>
+<body>
+  <div id="app">
+      <h1>{{header}}</h1>
+      <h2>{{welcome}}</h2>
+      <h3>{{counter}}</h3>
+      <button @click="increment">Press Me</button>
+  </div>
+<script>
+  const store = new Vuex.Store({
+      state: {
+        msg: 'Hello World',
+        count: 0
+      },
+      mutations: {
+        increment(state,payload) {
+            state.count += payload;
+        }
+      },
+      getters: {
+          msg(state) {
+            return state.msg.toUpperCase();
+          },
+          count(state) {
+            return state.count;
+          }
+      },
+      actions: {
+        increment(context, payload) {
+          setTimeout(function(){
+            context.commit('increment',payload);
+          },2000);
+        }
+      }
+
+  });
+  new Vue({
+      el: '#app',
+      data() {
+        return {
+          header: 'Vuex App'
+        }
+      },
+      computed: {
+        welcome() {
+          return store.getters.msg;
+        },
+        counter() {
+          return store.getters.count;
+        }
+      },
+      methods: {
+        increment() {
+          store.dispatch('increment', 10);
+        }
+
+      }
+  });
+</script>
+</body>
+</html>

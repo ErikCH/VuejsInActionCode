@@ -1,0 +1,12 @@
+<script>
+  const store = new Vuex.Store({
+      state: {
+        msg: 'Hello World',
+        count: 0
+      },
+      mutations: {
+        increment(state) {
+            state.count++;
+        }
+      }
+  });

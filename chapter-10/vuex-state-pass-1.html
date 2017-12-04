@@ -1,0 +1,12 @@
+...
+mutations: {
+  increment(state,payload) {
+      state.count += payload;
+  }
+}
+...
+methods: {
+  increment() {
+    store.commit('increment', 10)
+  }
+...
