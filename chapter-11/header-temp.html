@@ -1,0 +1,39 @@
+<template>
+  <header>
+    <div class="navbar navbar-default">
+      <div class="navbar-header">
+        <h1><router-link :to="{name: 'iMain'}">
+{{ sitename }}
+</router-link></h1>
+      </div>
+      <div class="nav navbar-nav navbar-right cart">
+        <div v-if="!mySession">				//#A
+          <button type="button"
+class="btn btn-default btn-lg"
+v-on:click="signIn">				//#B
+            Sign In
+          </button>
+        </div>
+        <div v-else>					//#C
+          <button type="button"
+class="btn btn-default btn-lg"
+v-on:click="signOut">				//#D
+            <img class="photo"
+:src="mySession.photoURL" />
+            Sign Out
+          </button>
+        </div>
+      </div>
+      <div class="nav navbar-nav navbar-right cart">
+        <button type="button"
+class="btn btn-default btn-lg"
+v-on:click="showCheckout">
+          <span class="glyphicon glyphicon-shopping-cart">
+{{cartItemCount}}
+             </span>
+Checkout
+        </button>
+      </div>
+    </div>
+  </header>
+</template>
