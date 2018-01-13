@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <script src="https://unpkg.com/vue"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<html>
+<head>
+</head>
+<body>
+    <hello-world id="app" level="5" name="Erik">4</hello-world>
+<script>
+  Vue.component('hello-world',{
+        render(createElement) {
+            return createElement(`h${this.$slots.default[0].text}`,
+            {
+              'class' : 'text-center',
+               on: {
+                 click(e) {
+                   alert('Clicked')
+                 }
+               }
+            },
+            this.msg + this.name)
+        },
+        data() {
+            return {
+                msg: 'Hello World '
+            }
+        },
+        props: ['name', 'level']
+  }
+)
+  new Vue({ el: '#app'})
+</script>
+</body>
+</html>

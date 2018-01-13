@@ -17,13 +17,11 @@ import axios from 'axios';
 import Card from '~/components/Card.vue'
 export default {
     asyncData ({ params }) {
-      console.log(params);
       return axios.get(`https://itunes.apple.com/search?term=${params.id}&entity=album`)
         .then((response) => {
             console.log(response.data.results);
             return {albumData: response.data.results}
         });
-
     },
     components: {
       Card

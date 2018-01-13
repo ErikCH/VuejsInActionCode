@@ -46,7 +46,7 @@ export default {
       this.$router.push({name: 'Form'});
     },
     signIn() {
-      var provider = new firebase.auth.GoogleAuthProvider();
+      let provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).then(function(result) {
         console.log('signed in!');
       }).catch(function(error){
@@ -62,7 +62,6 @@ export default {
         // An error happened.
       });
     }
-
   },
   computed: {
     mySession() {

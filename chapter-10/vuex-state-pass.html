@@ -21,8 +21,18 @@
         increment(state,payload) {
             state.count += payload;
         }
+      },
+      actions: {
+
+      },
+      getters: {
+        blah(state) {
+          return state.blah
+        }
       }
+
   });
+  const { mapGetters } = Vuex;
   new Vue({
       el: '#app',
       data() {
@@ -36,7 +46,7 @@
         },
         counter() {
           return store.state.count;
-        }
+        },
       },
       methods: {
         increment() {
