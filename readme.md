@@ -9,22 +9,22 @@ Feel free to submit a PR if you find any problem with any of the code examples i
 
 ## FAQ
 
-###Can I run any code in any of the chapters?
+### Can I run any code in any of the chapters?
 
 No, the code you see in each folder may or may not be runnable. In the book I have snippets of code. You must combine the snippets of code into a runnable app. However, I have included the completed apps in each folder as well.
 
-###Do I need Vue CLI?
+### Do I need Vue CLI?
 
 Yes and no. At the start of the book all the examples are single HTML pages that link out to the Vue.js CDN. In later chapters I converted over my Pet Store app to a Vue CLI app. 
 
-###How do I run the Pet Store App
+### How do I run the Pet Store App
 
 To run the pet store app change directories into the pet store directory and run npm install. Then run 'npm run dev'. Beware, you may need to change the port if it's already being used. This is found in the config/index.js. 
 
-###What port does the pet store app run
+### What port does the pet store app run
 
 I changed the configuration so the port is on 8081.
 
-###Help I found a bug!
+### Help I found a bug!
 
 Submit a PR and I'll look at it. After the book is released I may or may not accept pull requests. As of now I will except them.
