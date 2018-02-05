@@ -1,0 +1,12 @@
+…
+<div class="nav navbar-nav navbar-right cart">
+    <router-link 					//#A
+active-class="active" 			//#B
+tag="button" 				//#C
+class="btn btn-default btn-lg" 	//#D
+:to="{name: 'Form'}">			//#E
+    	<span
+class="glyphicon glyphicon-shopping-cart">
+{{ cartItemCount}}
+     </span> Checkout
+…

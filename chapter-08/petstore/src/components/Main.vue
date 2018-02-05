@@ -10,7 +10,7 @@
         </figure>
       </div>
       <div class="col-md-6 col-md-offset-0 description">
-        <h1 v-text="product.title"></h1>
+        <router-link tag="h1" :to="{ name : 'Id', params: {id: product.id}}" >{{product.title}}</router-link>
         <p v-html="product.description"></p>
         <p class="price">
         {{product.price | formatPrice}}
@@ -50,7 +50,7 @@
 <script>
 import MyHeader from './Header.vue'
 export default {
-  name: 'main',
+  name: 'imain',
   data () {
     return {
       products: {},

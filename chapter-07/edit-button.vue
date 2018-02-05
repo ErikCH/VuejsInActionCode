@@ -1,0 +1,6 @@
+…
+  </p>
+  <button @click="edit">Edit Product</button>
+  <router-view></router-view> 			
+</div>
+…
