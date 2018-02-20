@@ -1,4 +1,4 @@
-import { shallow, mount } from '@vue/test-utils'
+import { shallow } from '@vue/test-utils'
 import Form from '../src/components/Form.vue'
 
 describe('Form.vue', () => {

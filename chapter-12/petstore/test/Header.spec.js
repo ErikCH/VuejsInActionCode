@@ -50,7 +50,7 @@ describe('Header.vue', () => {
     expect(p.classes()).toContain('navbar');
   })
 
-  it('Check if Sign in text is correct for sign in', () => {
+  it('Check if Sign in button text is correct for sign in', () => {
     const cartItemCount = 10;
     const wrapper = shallow(Header, {
       store, localVue, propsData: { cartItemCount }
@@ -59,7 +59,7 @@ describe('Header.vue', () => {
     expect(wrapper.findAll('button').at(0).text()).toBe("Sign In");
 
   })
-    it('Check if Sign in text is correct for sign out', () => {
+    it('Check if Sign in button text is correct for sign out', () => {
       const cartItemCount = 10;
       getters.session = () => true;
       store = new Vuex.Store({ getters, mutations})
