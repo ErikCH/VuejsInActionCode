@@ -7,7 +7,7 @@
   <div id="app">
     <book-component :books="books">
       <h1 slot="header">{{header}}</h1>
-      <template slot="book" scope="props">
+      <template slot="book" slot-scope="props">
         <h2>
           <i>{{props.text.title}}</i>
           <small>by: {{props.text.author}}</small>
