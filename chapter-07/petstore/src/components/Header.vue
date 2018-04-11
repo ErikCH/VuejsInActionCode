@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'hello',
+  name: 'my-header',
   data () {
     return {
     sitename: "Vue.js Pet Depot",
