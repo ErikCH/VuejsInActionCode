@@ -27,4 +27,4 @@ I changed the configuration so the port is on 8081.
 
 ### Help I found a bug!
 
-Submit a PR and I'll look at it. After the book is released I may or may not accept pull requests. As of now I will except them.
+Submit a PR and I'll look at it. After the book is released I may or may not accept pull requests. As of now I will accept them. (note: I'm really behind on PRs so I apologize if it takes a few weeks or longer for me to get to them)
