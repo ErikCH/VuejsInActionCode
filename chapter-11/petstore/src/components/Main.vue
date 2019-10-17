@@ -58,7 +58,8 @@ export default {
   },
   data () {
     return {
-      cart: []
+      cart: [],
+      products: []
     }
   },
   components: { MyHeader },
